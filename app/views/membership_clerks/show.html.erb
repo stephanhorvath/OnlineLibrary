@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @membership_clerk.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @membership_clerk.last_name %>
+</p>
+
+<p>
+  <strong>Address line 1:</strong>
+  <%= @membership_clerk.address_line_1 %>
+</p>
+
+<p>
+  <strong>Address line 2:</strong>
+  <%= @membership_clerk.address_line_2 %>
+</p>
+
+<p>
+  <strong>Town:</strong>
+  <%= @membership_clerk.town %>
+</p>
+
+<p>
+  <strong>Post code:</strong>
+  <%= @membership_clerk.post_code %>
+</p>
+
+<p>
+  <strong>Tel no:</strong>
+  <%= @membership_clerk.tel_no %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @membership_clerk.email %>
+</p>
+
+<p>
+  <strong>Password digest:</strong>
+  <%= @membership_clerk.password_digest %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @membership_clerk.type %>
+</p>
+
+<%= link_to 'Edit', edit_membership_clerk_path(@membership_clerk) %> |
+<%= link_to 'Back', membership_clerks_path %>

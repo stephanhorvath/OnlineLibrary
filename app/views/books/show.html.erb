@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<div>
+  <h1 class="display-1 text-primary"><%= @book.title.titleize %></h1>
+  
+  <h5 class="text-muted">Author -</h3>
+  <h2 class="lead"><%= @book.author.titleize %></h2>
+  
+  <h5 class="text-muted">Synopsis -</h3>
+  <%= content_tag :p, @book.description, :class => "lead" %>
+  
+  <h5 class="text-muted">Genre -</h5>
+  <%= content_tag :p, @book.genre.titleize, :class => "lead" %>
+  
+  <h5 class="text-muted">Publisher -</h5>
+  <%= content_tag :p, @book.publisher.titleize, :class => "lead" %>
+  
+  <!-- if the current user is a manager, show the supplier details -->
+  <% if is_manager? %> 
+    <h5 class="text-muted">Supplier -</h5>
+    <p class="lead">ID <%= @book.supplier_id %> - <%= @book.supplier.name %></p>
+
+    <h5 class="text-muted">Stock -</h5>
+    <%= content_tag :label, @book.stock, :class => "lead" %>
+  <% end %>
+  
+  <h5 class="text-muted">Type -</h5>
+  <%= content_tag :p, @book.type.titleize, :class => "lead" %>
+</div>
+
+<!-- if the current user is a manager, show edit book button -->
+<% if current_user.type == "Manager" %>
+  <%= link_to 'Edit', edit_book_path(@book) %> |
+<% end %>
+<%= link_to 'Back', books_path %>

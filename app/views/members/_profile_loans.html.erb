@@ -1,0 +1,28 @@
+<div class="row lead justify-content-center">
+<h3 class="text-muted">Loans:</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Begin Date:</th>
+        <th>End Date:</th>
+        <th>Returned?</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- iterate through each of the member's loans -->
+      <% @member.loans.each do |loan| %>
+        <tr>
+          <td><%= loan.id %></td>
+          <td><%= loan.begin_date.strftime("%D") %></td>
+          <td><%= loan.end_date.strftime("%D") %></td>
+          <td><%= loan.returned  %></td>
+          <td><%= link_to 'View', member_loan_path(@member.id, loan.id) %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

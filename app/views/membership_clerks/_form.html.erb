@@ -1,0 +1,67 @@
+<%= form_with(model: membership_clerk, local: true) do |form| %>
+  <% if membership_clerk.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(membership_clerk.errors.count, "error") %> prohibited this membership_clerk from being saved:</h2>
+
+      <ul>
+      <% membership_clerk.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, id: :membership_clerk_first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, id: :membership_clerk_last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address_line_1 %>
+    <%= form.text_field :address_line_1, id: :membership_clerk_address_line_1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address_line_2 %>
+    <%= form.text_field :address_line_2, id: :membership_clerk_address_line_2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :town %>
+    <%= form.text_field :town, id: :membership_clerk_town %>
+  </div>
+
+  <div class="field">
+    <%= form.label :post_code %>
+    <%= form.text_field :post_code, id: :membership_clerk_post_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tel_no %>
+    <%= form.text_field :tel_no, id: :membership_clerk_tel_no %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :membership_clerk_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_digest %>
+    <%= form.text_field :password_digest, id: :membership_clerk_password_digest %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.text_field :type, id: :membership_clerk_type %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

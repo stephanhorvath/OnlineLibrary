@@ -1,0 +1,41 @@
+<div class="jumbotron jumbotron-fluid">
+      <div class="container">
+	    <h1>Browse. Read. Return. Repeat.</h1>
+	    <hr class="my-4">
+	    <p>Become a member today, and receive nothing for free.</p>
+	    <% if logged_in? %>
+	      <%= link_to "Browse", books_path, class: "btn btn-primary btn-lg" %>
+	    <% else %>
+	      <%= link_to "Register", subscriptions_path, class:"btn btn-primary btn-lg" %>
+            <% end %>
+      </div>
+</div>
+<div class="container">
+      <div class="row">
+	    <div class="col-lg-4 text-center card">
+		  <img class="card-img-top" src="..." alt="Card image cap">
+		  <div class="card-body">
+			<h2 class="card-title">Browse</h2>
+			<p class="card-text">Browse our vast collection of titles</p>
+			<a href="#" class="btn btn-primary">Go somewhere</a>
+		  </div>
+	    </div>
+	    <div class="col-lg-4 text-center card">
+		  <img class="card-img-top" src="..." alt="Card image cap">
+		  <div class="card-body">
+			<h2 class="card-title">Browse</h2>
+			<p class="card-text">Browse our vast collection of titles</p>
+			<a href="#" class="btn btn-primary">Go somewhere</a>
+		  </div>
+	    </div>
+	    <div class="col-lg-4 text-center card">
+		  <img class="card-img-top" src="..." alt="Card image cap">
+		  <div class="card-body">
+			<h2 class="card-title">Browse</h2>
+			<p class="card-text">Browse our vast collection of titles</p>
+			<a href="#" class="btn btn-primary">Go somewhere</a>
+		  </div>
+	    </div>
+      </div>
+</div>
+

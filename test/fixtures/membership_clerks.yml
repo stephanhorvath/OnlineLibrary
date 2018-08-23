@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+membership_clerk_one:
+  first_name: "MemClerk1"
+  last_name: "Example1"
+  address_line_1: "222 Memory Lane"
+  address_line_2: nil
+  town: "Glasgow"
+  post_code: "G23 9KI"
+  tel_no: "02129611009"
+  email: "memclerk1@memclerk1.com"
+  password_digest: "password"
+  type: "MembershipClerk"
+
+membership_clerk_two:
+  first_name: "MemClerk2"
+  last_name: "Example2"
+  address_line_1: "333 Papillion Avenue"
+  address_line_2: nil
+  town: "G98 3KK"
+  post_code: "Glasgow"
+  tel_no: "48374838883"
+  email: "memclerk2@memclerk2.com"
+  password_digest: "password"
+  type: "MembershipClerk"

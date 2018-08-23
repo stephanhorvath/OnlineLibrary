@@ -1,0 +1,11 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Books") do |sheet|
+  # header row of spreadsheet
+  sheet.add_row %w(id title author description genre publisher supplier_id supplier stock)
+
+  # each book is a row on spreadsheet
+  @books.each do |book|
+    sheet.add_row [book.id, book.title, book.author, book.description, book.genre, book.publisher, book.supplier_id, book.supplier.name, book.stock]
+  end
+end

@@ -1,0 +1,128 @@
+<%= form_with(model: member, local: true, validate: true) do |form| %>
+  <!-- show any errors when saving here -->
+  <% plan_id = params[:plan_id] %>
+  <% if member.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(member.errors.count, "error") %> prohibited this member from being saved:</h2>
+
+      <ul>
+      <% member.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :first_name, "First Name" %>
+    <%= form.text_field :first_name,
+                        id: :member_first_name,
+                        validate: { presence: true },
+                        class: "form-control",
+                        :required => true %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :last_name, "Last Name" %>
+    <%= form.text_field :last_name,
+                        id: :member_last_name,
+                        validate: { presence: true },
+                        class: "form-control",
+                        :required => true %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :address_line_1, "Address Line 1" %>
+    <%= form.text_field :address_line_1,
+                        id: :member_address_line_1,
+                        validate: { presence: true },
+                        class: "form-control",
+                        :required => true %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :address_line_2, "Address Line 2" %>
+    <%= form.text_field :address_line_2,
+                        id: :member_address_line_2,
+                        class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :town %>
+    <%= form.text_field :town,
+                        id: :member_town,
+                        validate: { presence: true },
+                        class: "form-control",
+                        :required => true %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :post_code, "Post Code" %>
+    <%= form.text_field :post_code,
+                        id: :member_post_code,
+                        validate: { presence: true },
+                        class: "form-control",
+                        :required => true %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :tel_no, "Telephone Number" %>
+    <%= form.telephone_field :tel_no,
+                        id: :member_tel_no,
+                        validate: { presence: true },
+                        class: "form-control",
+                        required: true %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :email, "Email" %>
+    <%= form.email_field :email,
+                        id: :member_email,
+                        validate: { presence: true },
+                        class: "form-control",
+                        :required => true %>
+    <small class="form-text text-muted">You'll be using it to log in!</small>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :password, "Password" %>
+    <%= form.password_field :password,
+                        id: :member_password,
+                        validate: { presence: true },
+                        class: "form-control",
+                        :required => true %>
+    <small class="form-text text-muted">A secure password has letters, numbers, and symbols!</small>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :password_confirmation, "Password Confirmation" %>
+    <%= form.password_field :password_confirmation,
+                        id: :member_password_confirmation,
+                        validate: { presence: true },
+                        class: "form-control",
+                        :required => true %>
+    <small class="form-text text-muted">Must be the same as the one above!</small>
+  </div>
+
+  <!-- if new member, pass plan_id as an invisible value -->
+  <% if form.object.new_record? %>
+    <%= form.hidden_field :plan_id, value: params[:plan_id] %>
+    <!-- if old member, show their plan info -->
+  <% else %>
+    <%= form.label :plan_id, "Plan" %>
+    <%= form.text_field :plan_id_text, value: @member.plan.nickname, readonly: true, class: "form-control" %>
+    <%= form.hidden_field :plan_id, value: @member.plan_id %>
+  <% end %>
+
+  <!-- if new member, render stripe form -->
+  <% if form.object.new_record? %>
+    <%= render 'stripe-form', plan: params[:plan_id] %>
+  <% end %>
+
+  <!-- if old member, show update details -->
+  <% if !form.object.new_record? %>
+    <div class="actions spacer">
+      <%= form.submit "Update Details", class: "btn btn-primary btn-block" %>
+    </div>
+  <% end %>
+<% end %>

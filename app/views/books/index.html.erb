@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="display-4 text-center">All Books</h1>
+
+<!-- adds pagination, displays 12 per page -->
+<div class="text-center">
+  <%= will_paginate @books, list_classes: %w(pagination justify-content-center) %>
+</div>
+
+<div class="container">
+  <div class="row text-center justify-content-center">
+    <!-- iterate through each book -->
+  <% @books.each do |book| %>
+    <div class="card-deck">
+      <!-- if the book is not in stock, yellow background, else light background -->
+      <div class="card text-center spacer <%= book.stock == 0 ? "bg-warning" : "bg-light" %>" style="width: 16rem;">
+      <%= image_tag book.cover, size: "100x200", alt: "Book Cover", :class => "card-img-top" %>
+      <div class="card-body">
+        <%= content_tag :h5, book.title.titleize,  :class => "card-title" %>
+        <%= content_tag :p,  book.author.titleize, :class => "card-text text-muted"%>
+        <!-- if the current user is a manager, show the stock level -->
+        <% if is_manager? %>
+          <p class="card-text text-muted small">In Stock - <%= book.stock.to_s %></p>
+          <!-- if stock is 0, display not in stock -->
+        <% elsif book.stock == 0 %>
+          <p class="card-text text-muted small">Not in Stock</p>
+        <% end %>
+      </div>
+      <div class="card-footer">
+        <!-- if the current user is a manager, show edit and delete buttons -->
+        <% if is_manager? %>
+          <div class="btn-group-md" role="group">
+            <%= link_to "View Book", book_path(book.id), :class => "btn btn-primary" %>
+            <%= link_to "Edit Book", edit_book_path(book.id), :class => "btn btn-secondary" %>
+          </div> 
+          <%= link_to "Delete", book, method: :delete, data: { confirm: 'Are you sure?' },
+              :class => "btn btn-danger btn-block spacer" %>
+            <!-- if the current user is not a manager, show add to cart button -->
+        <% else %>
+          <div class="btn-group" role="group">
+            <%= link_to "View Book", book_path(book.id), :class => "btn btn-primary" %>
+            <!-- if book is out of stock, show add to queue button -->
+            <% if book.stock == 0 %>
+              <%= link_to "Add to Queue", '#', :class => "btn btn-dark" %>
+            <% else %>
+              <%= link_to "Add to Loan", add_to_cart_path(book), :method => :put, class: "btn btn-success" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+<!-- if the current user is a manager, show new book and export buttons-->
+<% if current_user.type == "Manager" %>
+  <div class="spacer">
+    <%= link_to 'New Book', new_book_path, class: "btn btn-primary" %>
+    <%= link_to 'Export List to New Excel File', books_path(format: "xlsx"), class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<div class="spacer">
+  <%= will_paginate @books, list_classes: %w(pagination justify-content-center) %>
+</div>

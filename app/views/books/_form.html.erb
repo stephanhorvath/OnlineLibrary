@@ -1,0 +1,76 @@
+<%= form_with(model: @book, local: true) do |form| %>
+  <!-- if there are any errors with saving a book, display them here -->
+  <% if @book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title,
+                        id: :book_title,
+                        :class => 'form-control' %>
+  </div>
+
+
+  <div class="field form-group">
+    <%= form.label :author %>
+    <%= form.text_field :author,
+                        id: :book_author,
+                        :class => 'form-control' %>
+  </div>
+  
+
+  <div class="field form-group">
+    <%= form.label :description %>
+    <%= form.text_field :description, 
+                        id: :book_description,
+                        :class => 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :genre %>
+    <%= form.text_field :genre, 
+                        id: :book_genre,
+                        :class => 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :publisher %>
+    <%= form.text_field :publisher, 
+                        id: :book_publisher,
+                        :class => 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :supplier_id %>
+    <%= form.number_field :supplier_id, 
+                          id: :book_supplier_id,
+                          :class => 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :stock %>
+    <%= form.number_field :stock, 
+                          id: :book_stock,
+                          :class => 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :type %>
+    <%= form.text_field :type, 
+                        id: :book_type,
+                        :class => 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit :class => "btn btn-primary btn-block" %>
+  </div>
+<% end %>

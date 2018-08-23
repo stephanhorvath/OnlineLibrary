@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+manager_one: 
+  id: 40
+  first_name: "Manager1"
+  last_name: "Example1"
+  address_line_1: "9 Low Street"
+  address_line_2: "Flat 9"
+  town: "Glasgow"
+  post_code: "G98 8JK"
+  tel_no: "05947758473"
+  email: "manager1@manager1.com"
+  password_digest: <%= User.digest('password') %> 
+  type: "Manager"
+
+manager_two: 
+  id: 41
+  first_name: "Manager2"
+  last_name: "Example2"
+  address_line_1: "10 Middle Street"
+  address_line_2: "Flat 7"
+  town: "Glasgow"
+  post_code: "G98 K99"
+  tel_no: "02847657777"
+  email: "manager2@manager2.com"
+  password_digest: <%= User.digest('password') %> 
+  type: "Manager"

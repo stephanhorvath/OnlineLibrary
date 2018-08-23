@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<div class="text-center">
+  <h1 class="display-2">Member Profile</h1>
+</div>
+
+<!-- buttons to edit and to delete account -->
+<div class="row justify-content-end">
+  <div class="btn-group" role="group">
+    <%= link_to 'Edit Details', edit_member_path(@member), class: "btn btn-primary" %>
+    <%= link_to 'Delete Account', @member, method: :delete, data: { confirm: 'Are you sure?' },
+                                  class: "btn btn-danger" %>
+  </div>
+</div>
+
+<div class="text-center">
+  <h3 class="text-muted">Name:</h3>
+  <%= content_tag :p, @member.first_name + " " + @member.last_name, :class => "lead" %>
+
+  <h3 class="text-muted">Address Line 1:</h3>
+  <%= content_tag :p, @member.address_line_1, :class => "lead" %>
+
+  <!-- if address_line_2 is not null, show it, else show '-' -->
+  <% if @member.address_line_2? %>
+    <h3 class="text-muted">Address Line 2:</h3>
+    <%= content_tag :p, @member.address_line_2, :class => "lead" %>
+  <% else %>
+    <h3 class="text-muted">Address Line 2:</h3>
+    <%= content_tag :p, "-", :class => "lead" %>
+  <% end %>
+
+  <h3 class="text-muted">Town:</h3>
+  <%= content_tag :p, @member.town, :class => "lead" %>
+
+  <h3 class="text-muted">Post Code:</h3>
+  <%= content_tag :p, @member.post_code, :class => "lead" %>
+
+  <h3 class="text-muted">Telephone Number:</h3>
+  <%= content_tag :p, @member.tel_no, :class => "lead" %>
+
+  <h3 class="text-muted">Email:</h3>
+  <%= content_tag :p, @member.email, :class => "lead" %>
+
+  <!-- show plan information -->
+  <div>
+    <h3 class="text-muted">Plan:</h3>
+    <%= content_tag :p, @member.plan.nickname, :class => "lead" %>
+    <div class="row text-center">
+      <h4 class="text-muted col-md-4">Begin Date:</h4>
+      <%= content_tag :p, @sub_begin, :class => "lead" %>
+      <h4 class="text-muted col-md-4">End Date:</h4>
+      <%= content_tag :p, @sub_end, :class => "lead" %>
+    </div>
+  </div>
+
+  <%= render 'profile_loans' %>
+
+</div>

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+book_one:
+  id: 200
+  title: "Dune"
+  description: "Sandy"
+  genre: "sci-fi"
+  publisher: "idk"
+  supplier_id: 1
+  type: "Book"
+  author: "Frank Herbert"
+
+book_two:
+  title: MyString
+  # author_id: 2
+  description: MyString
+  genre: MyString
+  publisher: MyString
+  supplier_id: 1
+  type: "Book"
+  author: MyString

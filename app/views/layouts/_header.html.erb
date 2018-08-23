@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <%= link_to "ReadAll Library", root_path, class:"navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
+        <%= link_to "Home", root_path, class:"nav-link" %>
+      </li>
+      <!-- if user is logged in, show browse link -->
+      <% if logged_in? %>
+        <li class="nav-item">
+          <%= link_to "Browse", books_path, class:"nav-link" %>
+        </li>
+      <% end %>
+      <li class="nav-item">
+        <%= link_to "Contact", '#', class:"nav-link" %>
+      </li>
+      <!-- if user is logged in and is a manager, show all members and all loans button -->
+      <% if logged_in? && is_manager? %>
+        <li><%= link_to "All Members", members_path, class: "nav-link" %></li>
+        <li><%= link_to "All Loans", loans_path, class: "nav-link" %></li>
+      <% end %>
+      <!-- if user is logged in and is a member, show cart link -->
+      <% if logged_in? && is_member? %>
+        <li><%= render 'layouts/cart_text' %></li>
+      <% end %>
+      <!-- if user is logged in, show dropdown -->
+      <% if logged_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Profile", current_user, class: "btn dropdown-item" %>
+            <%= link_to "Settings", '#' , class: "btn dropdown-item"%>
+            <div class="dropdown-divider"></div>
+              <%= link_to "Log out", logout_path, method: :delete , class: "btn dropdown-item" %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Log in", login_path, class:"nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+

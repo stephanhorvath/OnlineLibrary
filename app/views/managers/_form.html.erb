@@ -1,0 +1,102 @@
+<%= form_with(model: @manager, local: true) do |form| %>
+  <!-- show any errors when saving here -->
+  <% if manager.errors.any? %>
+    <div id="error_explanation">
+        <div class="alert alert-danger">
+        <h2>The form contains <%= pluralize(manager.errors.count, "error") %></h2>
+
+        <ul>
+        <% manager.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :first_name, "First Name" %>
+    <%= form.text_field :first_name, 
+                        id: :manager_first_name, 
+                        class: "form-control", 
+                        :required => true %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :last_name, "Last Name" %>
+    <%= form.text_field :last_name, 
+                        id: :manager_last_name, 
+                        class: "form-control",
+                        :required => true %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :address_line_1, "Address Line 1" %>
+    <%= form.text_field :address_line_1, 
+                        id: :manager_address_line_1, 
+                        class: "form-control",
+                        :required => true %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :address_line_2, "Address Line 2" %>
+    <%= form.text_field :address_line_2, 
+                        id: :manager_address_line_2, 
+                        class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :town %>
+    <%= form.text_field :town, 
+                        id: :manager_town, 
+                        class: "form-control",
+                        :required => true %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :post_code, "Post Code" %>
+    <%= form.text_field :post_code, 
+                        id: :manager_post_code, 
+                        placeholder: "A12 3BC" , 
+                        class: "form-control", 
+                        :required => true %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :tel_no, "Telephone Number" %>
+    <%= form.text_field :tel_no, 
+                        id: :manager_tel_no, 
+                        class: "form-control",
+                        :required => true %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :email %>
+    <%= form.email_field :email, 
+                         id: :manager_email, 
+                         class: "form-control",
+                         :required => true %>
+    <small class="form-text text-muted">You'll be using it to log in.</small>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :password, "Password" %>
+    <%= form.password_field :password, 
+                            id: :manager_password, 
+                            class: "form-control",
+                            :required => true %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :password_confirmation, "Confirm Password" %>
+    <%= form.password_field :password_confirmation, 
+                            id: :manager_password_confirmation, 
+                            class: "form-control",
+                            :required => true %>
+  </div>
+
+  <!-- if it's a new manager, show create account, if old manager, show update details -->
+  <div class="actions">
+    <%= form.submit (form.object.new_record? ? "Create Account" : "Update Details"), class: "btn btn-primary btn-block" %>
+  </div>
+<% end %>

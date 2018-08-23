@@ -1,0 +1,57 @@
+<p id="notice"><%#= notice %></p>
+
+<p>
+  <strong>First Name:</strong>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <strong>Last Name:</strong>
+  <%= @user.last_name %>
+</p>
+
+<p>
+  <strong>Address Line 1:</strong>
+  <%= @user.address_line_1 %>
+</p>
+
+<p>
+  <strong>Address Line 2:</strong>
+  <%= @user.address_line_2 %>
+</p>
+
+<p>
+  <strong>Town:</strong>
+  <%= @user.town %>
+</p>
+
+<p>
+  <strong>Post Code:</strong>
+  <%= @user.post_code %>
+</p>
+
+<p>
+  <strong>Telephone Number:</strong>
+  <%= @user.tel_no %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<!--
+<p>
+  <strong>Password digest:</strong>
+  <%#= @user.password_digest %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%#= @user.type %>
+</p>
+-->
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

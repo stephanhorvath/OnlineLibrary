@@ -1,0 +1,48 @@
+#error_explanation {
+    color: red;
+    ul {
+        color: red;
+        margin: 0 0 30px 0;
+    }
+}
+
+.field_with_errors {
+    .form-control {
+        color: red;
+        border-color: red;
+    }
+}
+
+// forms
+
+.checkbox {
+    margin-top: -10px;
+    margin-bottom: -10px;
+    span {
+        margin-left: 20px;
+        font-weight: normal
+    }
+}
+
+#session_remember_me {
+    width: auto;
+    margin-left: 0;
+}
+
+// spacing
+.spacer {
+    margin-top: 30px;
+}
+
+.side-spacer {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+// buttons
+.remove-button {
+    background-image: url('https://s3.amazonaws.com/reallall-library-cogc-us/round-delete-button.png');
+    // background-size: 50px 50px;
+    background-size: cover;
+}
+

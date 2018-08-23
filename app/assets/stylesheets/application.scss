@@ -1,0 +1,53 @@
+// bootsrap
+@import "bootstrap";
+@import "custom";
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+/*
+@mixin bg-gradient($angle: 180deg, $color: #0bd, $amount: 20%) {
+  background: linear-gradient($angle, $color, adjust-hue($color, $amount)) fixed;
+}
+*/
+
+@mixin bg-gradient($angle: 180deg, $from: #ccc, $to: #ddd) {
+    background-image: linear-gradient($from, $to);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*
+html {
+    @include bg-gradient(70deg, #36EF80, #00687F);
+}
+*/
+
+@mixin box_sizing {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.debug_dump {
+    clear: both;
+    float: left;
+    width: 100%;
+    margin-top: 45px;
+    @include box-sizing;
+}
+
+#back {
+    margin-top: 10px;
+}
+

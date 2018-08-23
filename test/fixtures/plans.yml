@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  stripe_id: "Paperback 2"
+  nickname: "Unlimited - Paperback 2"
+  display_price: 9.99
+
+two:
+  id: 2
+  stripe_id: "Paperback 4"
+  nickname: "Unlimited - Paperback 4"
+  display_price: 9.99

@@ -1,0 +1,26 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 27
+  first_name: "User1"
+  last_name: "Example1"
+  address_line_1: "1 High Street"
+  address_line_2: nil
+  town: "Glasgow"
+  post_code: "G11 6BL"
+  tel_no: "07492648376"
+  email: "user@user.com"
+  password_digest: <%= User.digest('password') %>
+  type: "User"
+
+two:
+  first_name: "User2"
+  last_name: "Example2"
+  address_line_1: "9 Third Street"
+  address_line_2: nil
+  town: "Paisley"
+  post_code: "PA8 9KJ"
+  tel_no: "02938273849"
+  email: "user2@user2.com"
+  password_digest: <%= User.digest('password') %>
+  type: "User"

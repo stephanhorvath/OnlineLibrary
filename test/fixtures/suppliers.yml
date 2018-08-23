@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+supplier_one:
+  id: 1
+  name: MyString
+  url: MyString
+
+supplier_two:
+  name: MyString
+  url: MyString

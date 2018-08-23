@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<div class="text-center">
+  <h1 class="display-2">Loan Details</h1>
+</div>
+
+<table class="table text-center">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Begin Date:</th>
+      <th>End Date:</th>
+      <th>Returned?</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><%= @loan.id %></td>
+      <td><%= @loan.begin_date %></td>
+      <td><%= @loan.end_date %></td>
+      <td><%= @loan.returned %></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td colspan="4"><%= content_tag :p, "Items", :class => "lead" %></td>
+    </tr>
+    <tr>
+      <td colspan="2">Book ID</td>
+      <td colspan="2">Title</td>
+    </tr>
+    <% @loan.loan_lines.each do |line| %>
+      <tr>
+        <td colspan="2"><%= line.book.id %></td>
+        <td colspan="2"><%= line.book.title %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if is_manager? %>
+  <%= link_to 'Edit', edit_loan_path(@loan) %> |
+<% end %>
+<%= link_to 'Back', member_path(@member) %>

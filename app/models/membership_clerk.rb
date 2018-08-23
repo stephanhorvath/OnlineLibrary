@@ -1,0 +1,2 @@
+class MembershipClerk < User
+end

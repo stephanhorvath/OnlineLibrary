@@ -1,0 +1,7 @@
+<!-- if there are any books in the cart, show how many -->
+<% if session[:cart].any? %>
+  <%= link_to "#{session[:cart].size} Book(s) in Cart", new_loan_path, class: "nav-link text-warning" %>
+  <!-- if there are no books in the cart, show 0 -->
+<% else %>
+  <%= link_to "0 Books in Cart", '#', class: "nav-link text-danger" %>
+<% end %>

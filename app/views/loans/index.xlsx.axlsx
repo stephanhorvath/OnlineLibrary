@@ -1,0 +1,13 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Loans") do |sheet|
+  # header row of spreadsheet
+  sheet.add_row %w(ID BeginDate EndDate Status Book MemberID)
+
+  # each loan is a row on spreadsheet
+  @loans.each do |loan|
+    loan.loan_lines.each do |line|
+      sheet.add_row [loan.id, loan.begin_date.strftime("%D"), loan.end_date.strftime("%D"), loan.status, line.book.title, loan.user_id]
+    end
+  end
+end

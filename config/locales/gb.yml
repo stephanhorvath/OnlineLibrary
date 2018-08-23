@@ -1,0 +1,13 @@
+gb:
+  faker:
+    address:
+      secondary_address: [Flat 1, Flat 2, Flat 3, Flat 4, Flat 5,
+                          Flat 6, Flat 7, Flat 8, Flat 9, Flat 10,
+                          Flat 11, Flat 12, Flat 13, Flat 14, Flat 15,
+                          Flat 16, Flat 17, Flat 18, Flat 19, Flat 20]
+
+      town: [Glasgow, Edinburgh, Stirling, Paisley, Falkirk,
+             London, Manchester, Bath, Bristol, Newcastle,
+             Stornoway, Cardiff, Liverpool]
+
+      post_code: [G11 6BL, G11 6GP]

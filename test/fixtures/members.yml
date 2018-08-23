@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+member_one:
+  id: 50
+  first_name: "Member1"
+  last_name: "Example1"
+  address_line_1: "8 Costa Street"
+  address_line_2: nil
+  town: "Glasgow"
+  post_code: "G78 3JJ"
+  tel_no: "049573837"
+  email: "member1@member1.com"
+  password_digest: <%= User.digest('password') %>
+  type: "Member"
+  plan_id: 1
+
+member_two:
+  id: 51
+  first_name: "Member2"
+  last_name: "Example2"
+  address_line_1: "6 Nero Street"
+  address_line_2: nil
+  town: "Glasgow"
+  post_code: "G77 8NN"
+  tel_no: "9837464738"
+  email: "member2@member2.com"
+  password_digest: <%= User.digest('password') %>
+  type: "Member"
+  plan_id: 2

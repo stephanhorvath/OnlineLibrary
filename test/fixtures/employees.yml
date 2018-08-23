@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+employee_one:
+  first_name: "Employee1"
+  last_name: "Example"
+  address_line_1: "3 High Street"
+  address_line_2: "Flat 3"
+  town: "Glasgow"
+  post_code: "G15 9BL"
+  tel_no: "0123847439"
+  email: "employee1@employee1.com"
+  password_digest: "password"
+  type: "Employee"
+
+employee_two:
+  first_name: "Employee2"
+  last_name: "Example2"
+  address_line_1: "2 Second Street"
+  address_line_2: "Flat 4"
+  town: "Edinburgh"
+  post_code: "ED8 9KJ"
+  tel_no: "02938273849"
+  email: "employee2@employee2.com"
+  password_digest: "password"
+  type: "Employee"

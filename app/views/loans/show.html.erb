@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container text-center">
+<div>
+  <h1 class="display-2">Loan Details</h1>
+</div>
+
+<!-- if the loan is not returned, show the cancel button -->
+<% if !@loan.returned? %>
+  <div class="row justify-content-end">
+    <div class="btn-group" role="group">
+      <%= link_to 'Cancel Loan', @loan, method: :delete, data: { confirm: 'Are you sure?' },
+                                    class: "btn btn-danger" %>
+    </div>
+  </div>
+<% end %>
+
+<table class="table text-center justify-content-center">
+  <thead>
+    <tr>
+      <!-- if the current user is a manager, show the member id column -->
+      <% if is_manager? %>
+        <th>Member #</th>
+      <% end %>
+      <th>Loan #</th>
+      <th>Begin Date</th>
+      <th>End Date</th>
+      <th>Returned?</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <!-- if the current user is a manager, show the member id column -->
+      <% if is_manager? %>
+        <td><%= @loan.user.id %></th>
+      <% end %>
+      <td><%= @loan.id %></td>
+      <td><%= @loan.begin_date.strftime("%D") %></td>
+      <td><%= @loan.end_date.strftime("%D") %></td>
+      <td><%= @loan.returned.to_s.titleize %></td>
+      <td><%= @loan.status.titleize %></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <!-- if the current member is a manager, decrease column size, else leave at 5 -->
+      <td colspan=<%= is_manager? ? "4" : "5" %>><%= content_tag :p, "Items", :class => "lead" %></td>
+    </tr>
+    <tr>
+      <td colspan="1">Book ID</td>
+      <td colspan="4">Title</td>
+    </tr>
+    <!-- iterate through each loan line -->
+    <% @loan.loan_lines.each do |line| %>
+      <tr>
+        <td colspan="1"><%= line.book.id %></td>
+        <td colspan="4"><%= line.book.title.titleize %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+<%= link_to 'Edit', edit_loan_path(@loan) %> |
+<%= link_to 'Back', url_for(:back) %>

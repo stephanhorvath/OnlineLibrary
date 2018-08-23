@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<div class="text-center">
+  <h1 class="display-2">Manager Profile</h1>
+</div>
+
+<div>
+  <h3 class="text-muted">Name:</h3>
+  <%= content_tag :p, @manager.first_name + " " + @manager.last_name, :class => "lead" %>
+
+  <h3 class="text-muted">Address Line 1:</h3>
+  <%= content_tag :p, @manager.address_line_1, :class => "lead" %>
+
+  <!-- if address_line_2 is nul, show '-' -->
+  <% if @manager.address_line_2? %>
+    <h3 class="text-muted">Address Line 2:</h3>
+    <%= content_tag :p, @manager.address_line_2, :class => "lead" %>
+  <% else %>
+    <h3 class="text-muted">Address Line 2:</h3>
+    <%= content_tag :p, "-", :class => "lead" %>
+  <% end %>
+
+  <h3 class="text-muted">Town:</h3>
+  <%= content_tag :p, @manager.town, :class => "lead" %>
+
+  <h3 class="text-muted">Post Code:</h3>
+  <%= content_tag :p, @manager.post_code, :class => "lead" %>
+
+  <h3 class="text-muted">Telephone Number:</h3>
+  <%= content_tag :p, @manager.tel_no, :class => "lead" %>
+
+  <h3 class="text-muted">Email:</h3>
+  <%= content_tag :p, @manager.email, :class => "lead" %>
+</div>
+
+<div class="row">
+  <div class="col-md-6 text-muted">
+    <%= link_to 'Edit', edit_manager_path(@manager), :class => "btn btn-primary" %> |
+    <%= link_to 'Back', managers_path, :class => "btn btn-primary" %>
+  </div>
+  
+  <div class="col-md-6 text-muted">
+    <%= link_to 'All Users', members_path, :class => "btn btn-secondary" %> |
+    <%= link_to 'Back', managers_path, :class => "btn btn-secondary" %>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @booking_clerk.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @booking_clerk.last_name %>
+</p>
+
+<p>
+  <strong>Address line 1:</strong>
+  <%= @booking_clerk.address_line_1 %>
+</p>
+
+<p>
+  <strong>Address line 2:</strong>
+  <%= @booking_clerk.address_line_2 %>
+</p>
+
+<p>
+  <strong>Town:</strong>
+  <%= @booking_clerk.town %>
+</p>
+
+<p>
+  <strong>Post code:</strong>
+  <%= @booking_clerk.post_code %>
+</p>
+
+<p>
+  <strong>Tel no:</strong>
+  <%= @booking_clerk.tel_no %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @booking_clerk.email %>
+</p>
+
+<p>
+  <strong>Password digest:</strong>
+  <%= @booking_clerk.password_digest %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @booking_clerk.type %>
+</p>
+
+<%= link_to 'Edit', edit_booking_clerk_path(@booking_clerk) %> |
+<%= link_to 'Back', booking_clerks_path %>

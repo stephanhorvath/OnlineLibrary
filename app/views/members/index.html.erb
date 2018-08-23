@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<div class="text-center">
+  <h1 class="display-2">Members</h1>
+</div>
+
+<!-- buttons for filtering through plan -->
+<div class="text-center btn-group-md" role="group">
+  <%= link_to "Unlimited - Paperback 2", members_path(sort: '1'), class: "btn btn-primary" %>
+  <%= link_to "Unlimited - Paperback 4", members_path(sort: '2'), class: "btn btn-primary" %>
+  <%= link_to "Unlimited - Paperback 6", members_path(sort: '3'), class: "btn btn-primary" %>
+  <%= link_to "Reset", members_path, class: "btn btn-secondary" %>
+</div>
+
+<div class="row justify-content-center spacer">
+  <%= link_to 'New Manager', new_manager_path, class: "btn btn-warning"  %>
+</div>
+
+<div class="spacer">
+</div>
+
+<table class="table text-center">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th></th>
+      <th>First</th>
+      <th>Last</th>
+      <th>Email</th>
+      <th>Plan</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <!-- iterate through all members -->
+    <% @members.each do |member| %>
+      <tr>
+        <td><%= member.id %></td>
+        <td><%= member.type %></td>
+        <td><%= member.first_name %></td>
+        <td><%= member.last_name %></td>
+        <td><%= member.email %></td>
+        <td><%= member.plan.nickname %></td>
+        <td><%= link_to 'Show', member %></td>
+        <td><%= link_to 'Edit', edit_member_path(member) %></td>
+        <td><%= link_to 'Delete', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

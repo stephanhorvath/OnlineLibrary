@@ -1,0 +1,14 @@
+<!-- taken from stripe's API website -->
+<!-- the methods between angle brackets are ruby -->
+<!-- they get the publishable key from the environment variables -->
+<!-- and get the plan from the database to display the price -->
+<div class="text-center">
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button btn-primary"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-description="Subscribe to ReadAll Library"
+        data-amount=<%= (Plan.find(@member.plan_id.to_i).display_price) * 100 %>
+        data-currency="gbp"
+        data-panelLabel="Subscribe for"
+        data-label="Subscribe"
+        data-locale="auto"></script>
+</div>
